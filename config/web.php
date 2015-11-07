@@ -71,6 +71,5 @@ if($dev)
     $devConf = require('conf.'.$dev.'.php');
     $config = arrayMerge($config, $devConf);
 }
-var_dump($config); die;
 
 return $config;
