@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1a3d2669cd29a461b1462841ac1be2c9",
-    "content-hash": "bccc3d9cd8e147bf3c2db2a155c879a8",
+    "hash": "a0d751a894f11f8ad3bc586c70c09887",
+    "content-hash": "7daba509f1e55a003581b5e08735e935",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -1453,6 +1453,46 @@
             "time": "2014-11-09 19:54:17"
         },
         {
+            "name": "pro100olgert/yii2-extended",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pro100olgert/yii2-extended.git",
+                "reference": "f2325d3c6f4daeae712ee9a2c7e41fe628ffcb64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pro100olgert/yii2-extended/zipball/f2325d3c6f4daeae712ee9a2c7e41fe628ffcb64",
+                "reference": "f2325d3c6f4daeae712ee9a2c7e41fe628ffcb64",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-widgets": "~3.4.0",
+                "yiisoft/yii2": "~2.0.6"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "olgert\\yii2\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-0"
+            ],
+            "authors": [
+                {
+                    "name": "Olgert Vaskevich",
+                    "email": "olgert.vaskevich@gmail.com"
+                }
+            ],
+            "description": "Yii2 extended version",
+            "keywords": [
+                "yii2"
+            ],
+            "time": "2015-11-07 14:12:26"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "5.x-dev",
             "source": {
@@ -2049,7 +2089,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "pro100olgert/yii2-extended": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

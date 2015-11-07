@@ -237,4 +237,13 @@ return array (
       '@kartik/widgets' => $vendorDir . '/kartik-v/yii2-widgets',
     ),
   ),
+  'pro100olgert/yii2-extended' => 
+  array (
+    'name' => 'pro100olgert/yii2-extended',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@olgert/yii2' => $vendorDir . '/pro100olgert/yii2-extended',
+    ),
+  ),
 );

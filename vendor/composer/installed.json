@@ -2119,5 +2119,47 @@
             "widget",
             "yii2"
         ]
+    },
+    {
+        "name": "pro100olgert/yii2-extended",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pro100olgert/yii2-extended.git",
+            "reference": "f2325d3c6f4daeae712ee9a2c7e41fe628ffcb64"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pro100olgert/yii2-extended/zipball/f2325d3c6f4daeae712ee9a2c7e41fe628ffcb64",
+            "reference": "f2325d3c6f4daeae712ee9a2c7e41fe628ffcb64",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/yii2-widgets": "~3.4.0",
+            "yiisoft/yii2": "~2.0.6"
+        },
+        "time": "2015-11-07 14:12:26",
+        "type": "yii2-extension",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "olgert\\yii2\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "CC-0"
+        ],
+        "authors": [
+            {
+                "name": "Olgert Vaskevich",
+                "email": "olgert.vaskevich@gmail.com"
+            }
+        ],
+        "description": "Yii2 extended version",
+        "keywords": [
+            "yii2"
+        ]
     }
 ]
