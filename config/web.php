@@ -26,7 +26,7 @@ $config = [
             'useFileTransport' => true,
         ],
         'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'traceLevel' => isStuff() ? 3 : 0,
             'targets'    => [
                 [
                     'class'  => 'yii\log\FileTarget',
@@ -43,16 +43,28 @@ $config = [
             'rules'           => array(
                 '/' => 'site/index',
 
+                '<controller:\w+>'                       => '<controller>/index',
                 '<controller:\w+>/<id:\d+>'              => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
             ),
         ],
     ],
+    'modules' => [
+        'yii2ext' =>  [
+            'class' => 'olgert\yii2\Module',
+        ],
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module',
+//            'export' => false,
+        ]
+    ],
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
+$config['bootstrap'][] = 'yii2ext';
+
+if (isStuff()) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
