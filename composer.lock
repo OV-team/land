@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a0d751a894f11f8ad3bc586c70c09887",
-    "content-hash": "7daba509f1e55a003581b5e08735e935",
+    "hash": "120feb24a97c725275a56c79a13f9bb8",
+    "content-hash": "87c18c76ec7cb7c63d574f6edffee60d",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -1497,17 +1497,50 @@
             "time": "2014-11-09 19:54:17"
         },
         {
+            "name": "pro100olgert/land-constructor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pro100olgert/land-constructor.git",
+                "reference": "0ea5594852c4e836fbb53ec8963918c6f22eb5ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pro100olgert/land-constructor/zipball/0ea5594852c4e836fbb53ec8963918c6f22eb5ce",
+                "reference": "0ea5594852c4e836fbb53ec8963918c6f22eb5ce",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "olgert\\land\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Olgert Vaskevich",
+                    "email": "olgert.vaskevich@gmail.com"
+                }
+            ],
+            "description": "Landing constructor",
+            "keywords": [
+                "yii2"
+            ],
+            "time": "2015-11-08 15:19:39"
+        },
+        {
             "name": "pro100olgert/yii2-extended",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pro100olgert/yii2-extended.git",
-                "reference": "52f4e2ee1ea9e7d44523bc714e2606a229895ee9"
+                "reference": "74f0825b16d489cb3315f2f76da2d00378ba0ff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pro100olgert/yii2-extended/zipball/52f4e2ee1ea9e7d44523bc714e2606a229895ee9",
-                "reference": "52f4e2ee1ea9e7d44523bc714e2606a229895ee9",
+                "url": "https://api.github.com/repos/pro100olgert/yii2-extended/zipball/74f0825b16d489cb3315f2f76da2d00378ba0ff4",
+                "reference": "74f0825b16d489cb3315f2f76da2d00378ba0ff4",
                 "shasum": ""
             },
             "require": {
@@ -1535,7 +1568,7 @@
             "keywords": [
                 "yii2"
             ],
-            "time": "2015-11-07 17:49:27"
+            "time": "2015-11-08 14:51:45"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2135,7 +2168,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "pro100olgert/yii2-extended": 20
+        "pro100olgert/yii2-extended": 20,
+        "pro100olgert/land-constructor": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -2167,18 +2167,53 @@
         ]
     },
     {
+        "name": "pro100olgert/land-constructor",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pro100olgert/land-constructor.git",
+            "reference": "0ea5594852c4e836fbb53ec8963918c6f22eb5ce"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pro100olgert/land-constructor/zipball/0ea5594852c4e836fbb53ec8963918c6f22eb5ce",
+            "reference": "0ea5594852c4e836fbb53ec8963918c6f22eb5ce",
+            "shasum": ""
+        },
+        "time": "2015-11-08 15:19:39",
+        "type": "yii2-extension",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "olgert\\land\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Olgert Vaskevich",
+                "email": "olgert.vaskevich@gmail.com"
+            }
+        ],
+        "description": "Landing constructor",
+        "keywords": [
+            "yii2"
+        ]
+    },
+    {
         "name": "pro100olgert/yii2-extended",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/pro100olgert/yii2-extended.git",
-            "reference": "52f4e2ee1ea9e7d44523bc714e2606a229895ee9"
+            "reference": "74f0825b16d489cb3315f2f76da2d00378ba0ff4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/pro100olgert/yii2-extended/zipball/52f4e2ee1ea9e7d44523bc714e2606a229895ee9",
-            "reference": "52f4e2ee1ea9e7d44523bc714e2606a229895ee9",
+            "url": "https://api.github.com/repos/pro100olgert/yii2-extended/zipball/74f0825b16d489cb3315f2f76da2d00378ba0ff4",
+            "reference": "74f0825b16d489cb3315f2f76da2d00378ba0ff4",
             "shasum": ""
         },
         "require": {
@@ -2186,7 +2221,7 @@
             "kartik-v/yii2-widgets": "~3.4.0",
             "yiisoft/yii2": "~2.0.6"
         },
-        "time": "2015-11-07 17:49:27",
+        "time": "2015-11-08 14:51:45",
         "type": "yii2-extension",
         "installation-source": "source",
         "autoload": {

@@ -246,6 +246,15 @@ return array (
       '@kartik/grid' => $vendorDir . '/kartik-v/yii2-grid',
     ),
   ),
+  'pro100olgert/land-constructor' => 
+  array (
+    'name' => 'pro100olgert/land-constructor',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@olgert/land' => $vendorDir . '/pro100olgert/land-constructor',
+    ),
+  ),
   'pro100olgert/yii2-extended' => 
   array (
     'name' => 'pro100olgert/yii2-extended',

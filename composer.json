@@ -18,7 +18,8 @@
         "yiisoft/yii2": "~2.0.6",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "pro100olgert/yii2-extended": "dev-master"
+        "pro100olgert/yii2-extended": "dev-master",
+        "pro100olgert/land-constructor": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
