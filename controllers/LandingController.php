@@ -2,9 +2,8 @@
 
 namespace app\controllers;
 
-use kartik\grid\GridView;
+use app\modules\yii2Extended\ExtARController;
 use Yii;
-use olgert\yii2\ExtARController;
 use app\models\Landing;
 use yii\helpers\Html;
 
@@ -30,11 +29,6 @@ class LandingController extends ExtARController
             [
                 'attribute'           => 'status',
                 'filter'              => $this->model->getStatusList(),
-                'filterType'          => GridView::FILTER_SELECT2,
-                'filterWidgetOptions' => [
-                    'pluginOptions' => [],
-                    'hideSearch'    => true,
-                ],
             ],
         ];
 

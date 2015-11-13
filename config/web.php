@@ -1,11 +1,16 @@
 <?php
 
-$params = require(__DIR__ . '/params.php');
+$params   = require(__DIR__ . '/params.php');
+$urlRules = require(__DIR__ . '/urlRules.php');
+
 
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => [
+        'log',
+        'yii2Extended',
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -40,29 +45,19 @@ $config = [
             'class'           => 'yii\web\UrlManager',
             'showScriptName'  => false,
             'enablePrettyUrl' => true,
-            'rules'           => array(
-                '/' => 'site/index',
-
-                '<controller:\w+>'                       => '<controller>/index',
-                '<controller:\w+>/<id:\d+>'              => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/<action:\w+>'          => '<controller>/<action>',
-            ),
+            'rules'           => $urlRules,
         ],
     ],
     'modules' => [
-        'yii2ext' =>  [
-            'class' => 'olgert\yii2\Module',
+        'yii2Extended' =>  [
+            'class' => 'app\modules\yii2Extended\Module',
         ],
-        'gridview' =>  [
-            'class' => '\kartik\grid\Module',
-//            'export' => false,
-        ]
+        'landConstructor' =>  [
+            'class' => 'app\landConstructor\Module',
+        ],
     ],
     'params' => $params,
 ];
-
-$config['bootstrap'][] = 'yii2ext';
 
 if (isStuff()) {
     // configuration adjustments for 'dev' environment

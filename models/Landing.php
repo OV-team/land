@@ -2,9 +2,8 @@
 
 namespace app\models;
 
+use app\modules\yii2Extended\ExtActiveRecord;
 use Yii;
-use olgert\yii2\ExtActiveRecord;
-use yii\data\ActiveDataProvider;
 
 /**
  * This is the model class for table "landing".
