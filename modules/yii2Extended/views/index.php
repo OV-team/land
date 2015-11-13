@@ -8,18 +8,30 @@ use yii\helpers\Html;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $columns array */
 
-$this->title = Yii::t('app', 'List of {model}', ['model' => $model->getHumanName()]);
+$this->title = $model->getHumanName();
 
 $this->params['breadcrumbs'][] = $this->title;
-
-$className =  substr($this->className(), strrpos($this->className(), '\\') + 1);
 ?>
+
+<?php $this->beginBlock('content-header'); ?>
+<?= $this->title ?>
+<small><?= Yii::t('app', 'list') ?></small>
+<?php $this->endBlock(); ?>
+
 <div class="box">
+    <div class="box-body">
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel'  => $model,
-        'columns'      => $columns,
-    ]); ?>
-
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel'  => $model,
+            'columns'      => $columns,
+            'layout' => "{items}<div class='row'><div class='col-sm-5'>{summary}</div><div class='col-sm-7'>{pager}</div></div>",
+            'tableOptions' => [
+                'class' => 'table table-bordered table-hover dataTable',
+            ],
+            'summaryOptions' => [
+                'class' => 'summary dataTables_info',
+            ],
+        ]); ?>
+    </div>
 </div>
