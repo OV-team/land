@@ -11,8 +11,10 @@ use yii\helpers\Html;
 $this->title = Yii::t('app', 'List of {model}', ['model' => $model->getHumanName()]);
 
 $this->params['breadcrumbs'][] = $this->title;
+
+$className =  substr($this->className(), strrpos($this->className(), '\\') + 1);
 ?>
-<div class="landing-index">
+<div class="box">
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
