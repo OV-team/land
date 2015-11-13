@@ -13,7 +13,6 @@ class FrontAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl  = '@web';
     public $css      = [
-        'css/bootstrap.min.css',
         'css/font-awesome.min.css',
         'css/animate.css',
         'css/owl.theme.css',
@@ -22,12 +21,15 @@ class FrontAsset extends AssetBundle
     ];
     public $js       = [
         'js/bootstrap.min.js',
-        'js/jquery.sticky.js',
         'js/wow.min.js',
+        'js/jquery.sticky.js',
         'js/owl.carousel.min.js',
+        'js/easytab.js',
         'js/mainpagecustom.js',
     ];
     public $depends  = [
         'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+        'rmrevin\yii\fontawesome\CDNAssetBundle'
     ];
 }

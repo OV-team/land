@@ -41,27 +41,24 @@
                 <div class="col-md-5">
 
                     <div class="signup-header">
-                        <h3 class="form-title text-center">GET STARTED</h3>
+                        <div class="tabs col-md-12 col-xs-12">
 
-                        <form class="form-header" action="http://moxdesign.us10.list-manage.com/subscribe/post"
-                              role="form" method="POST" id="#">
-                            <input type="hidden" name="u" value="503bdae81fde8612ff4944435">
-                            <input type="hidden" name="id" value="bfdba52708">
+                            <ul>
+                                <li class="col-md-6 col-sm-6 col-xs-6">Login</li>
+                                <li class="col-md-6 col-sm-6 col-xs-6">Sign in</li>
+                            </ul>
+                            <div>
+                                <div>
+                                    <?php echo $this->render('index-login'); ?>
+                                </div>
 
-                            <div class="form-group">
-                                <input class="form-control input-lg" name="MERGE1" id="name" type="text"
-                                       placeholder="Your name" required>
+                                <div>
+                                    <?php echo $this->render('index-logout'); ?>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input class="form-control input-lg" name="MERGE0" id="email" type="email"
-                                       placeholder="Email address" required>
-                            </div>
-                            <div class="form-group last">
-                                <input type="submit" class="btn btn-warning btn-block btn-lg" value="SUBSCRIBE">
-                            </div>
-                            <p class="privacy text-center">Сдедать таб с возможностью регистрация/ вход а снизу вход
-                                через социалки</p>
-                        </form>
+                        </div>
+
+
                     </div>
 
                 </div>
@@ -120,7 +117,7 @@
 
                 <!-- /.feature 1 -->
                 <div class="col-sm-4 feat-list">
-                    <i class="pe-7s-notebook pe-5x pe-va wow fadeInUp"></i>
+                    <i class="fa fa-instagram wow fadeInUp" data-wow-delay="0.6s"></i>
 
                     <div class="inner">
                         <h4>Marketing Strategy</h4>
@@ -132,7 +129,7 @@
 
                 <!-- /.feature 2 -->
                 <div class="col-sm-4 feat-list">
-                    <i class="pe-7s-cash pe-5x pe-va wow fadeInUp" data-wow-delay="0.2s"></i>
+                    <i class="fa fa-instagram wow fadeInUp" data-wow-delay="0.6s"></i>
 
                     <div class="inner">
                         <h4>App Monetization</h4>
@@ -144,7 +141,7 @@
 
                 <!-- /.feature 3 -->
                 <div class="col-sm-4 feat-list">
-                    <i class="pe-7s-cart pe-5x pe-va wow fadeInUp" data-wow-delay="0.4s"></i>
+                    <i class="fa fa-instagram wow fadeInUp" data-wow-delay="0.6s"></i>
 
                     <div class="inner">
                         <h4>Store Optimization</h4>
@@ -156,7 +153,7 @@
 
                 <!-- /.feature 4 -->
                 <div class="col-sm-4 feat-list">
-                    <i class="pe-7s-users pe-5x pe-va wow fadeInUp" data-wow-delay="0.6s"></i>
+                    <i class="fa fa-instagram wow fadeInUp" data-wow-delay="0.6s"></i>
 
                     <div class="inner">
                         <h4>User Management</h4>
@@ -167,7 +164,7 @@
                 </div>
 
                 <div class="col-sm-4 feat-list">
-                    <i class="pe-7s-notebook pe-5x pe-va wow fadeInUp"></i>
+                    <i class="fa fa-instagram wow fadeInUp" data-wow-delay="0.6s"></i>
 
                     <div class="inner">
                         <h4>Marketing Strategy</h4>
@@ -178,7 +175,7 @@
                 </div>
 
                 <div class="col-sm-4 feat-list">
-                    <i class="pe-7s-notebook pe-5x pe-va wow fadeInUp"></i>
+                    <i class="fa fa-instagram wow fadeInUp" data-wow-delay="0.6s"></i>
 
                     <div class="inner">
                         <h4>Marketing Strategy</h4>

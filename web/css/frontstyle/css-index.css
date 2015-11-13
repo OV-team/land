@@ -964,3 +964,29 @@ and (orientation : landscape) {
 		padding: 20px 10px; 
 	}
 }
+/*tab front page*/
+.tabs{
+	display:inline-block;
+	background-color: rgba(216, 198, 198, 0.3);
+}
+.tabs > div{
+	padding-top:10px;
+}
+.tabs ul{
+	margin:0px;
+	padding:0px;
+}
+
+.tabs ul li{
+	margin:0px;
+	padding:0px;
+	cursor:pointer;
+	display:block;
+	float:left;
+	padding:10px 15px;
+	text-align: center;
+	font-size: 1.6em;
+}
+.tabs ul li.active, .tabs ul li.active:hover{
+	color:#3EB0F7;
+}

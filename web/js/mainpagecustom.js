@@ -16,7 +16,7 @@
     });
 
 /* scrollspy */
-$('body').scrollspy({ target: '#navbar-scroll' })
+//$('body').scrollspy({ target: '#navbar-scroll' });
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
@@ -58,11 +58,14 @@ $(window).load(function(){
 
 });
 
-
+$(document).ready(function(){
+    $(".tabs").lightTabs();
+});
 	
 /* scrollToTop */
 $(document).ready(function(){
-	
+    new WOW().init();
+
 	//Check to see if the window is top if not then display button
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 500) {
