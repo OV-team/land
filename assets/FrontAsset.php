@@ -11,14 +11,23 @@ use yii\web\AssetBundle;
 class FrontAsset extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web';
-    public $css = [
-        'css/site.css',
+    public $baseUrl  = '@web';
+    public $css      = [
+        'css/bootstrap.min.css',
+        'css/font-awesome.min.css',
+        'css/animate.css',
+        'css/owl.theme.css',
+        'css/owl.carousel.css',
+        'css/frontstyle/css-index.css',
     ];
-    public $js = [
+    public $js       = [
+        'js/bootstrap.min.js',
+        'js/jquery.sticky.js',
+        'js/wow.min.js',
+        'js/owl.carousel.min.js',
+        'js/mainpagecustom.js',
     ];
-    public $depends = [
+    public $depends  = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
     ];
 }
