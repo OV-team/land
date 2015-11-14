@@ -17,12 +17,12 @@ class AppLteAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/almasaeed2010/adminlte';
     public $css = [
-        'plugins/select2/select2.min.css'
+//        'plugins/select2/select2.min.css'
     ];
     public $js = [
         'plugins/select2/select2.min.js'
     ];
     public $depends = [
-        'dmstr\web\AdminLteAsset',
+        'dmstr\web\AdminLteAsset'
     ];
 }

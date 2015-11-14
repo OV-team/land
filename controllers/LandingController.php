@@ -31,7 +31,7 @@ class LandingController extends ExtARController
                 'attribute' => 'status',
                 'filter' => $this->model->getStatusList(),
                 'filterInputOptions' => [
-                    'multiple' => 'multiple',
+//                    'multiple' => 'multiple',
                     'class' => 'form-control select2'
                 ]
             ],

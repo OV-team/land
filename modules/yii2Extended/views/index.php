@@ -17,9 +17,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <?= $this->title ?>
 <small><?= Yii::t('app', 'list') ?></small>
 <?php $this->endBlock(); ?>
-
 <p>
-    <?php echo Html::a(Yii::t('app', 'Create'), 'landing/create', ['class' => 'btn btn-success']); ?>
+    <?php echo Html::a(Yii::t('app', 'Create'), Yii::$app->controller->id.'/create', ['class' => 'btn btn-success']); ?>
+    <?php echo Html::a(Yii::t('app', 'Refresh'), Yii::$app->controller->id, ['class' => 'btn btn-primary margin']); ?>
+
 </p>
 
 <div class="box">
