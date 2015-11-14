@@ -7,6 +7,7 @@
 
 namespace app\assets;
 
+use Exception;
 use yii\web\AssetBundle;
 
 /**
@@ -16,14 +17,17 @@ use yii\web\AssetBundle;
 class AppLteAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/almasaeed2010/adminlte';
+
     public $css        = [
         'plugins/select2/select2.min.css',
         'dist/css/AdminLTE.min.css',
+
     ];
     public $js         = [
         'plugins/select2/select2.min.js',
         'dist/js/app.min.js',
     ];
+
     public $depends    = [
         'rmrevin\yii\fontawesome\AssetBundle',
         'yii\web\YiiAsset',

@@ -1177,54 +1177,6 @@
         ]
     },
     {
-        "name": "insolita/yii2-migration-generator",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/Insolita/yii2-migrik.git",
-            "reference": "bbc19ccf949a4a4e9fe49719ba89480f0c2de732"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/Insolita/yii2-migrik/zipball/bbc19ccf949a4a4e9fe49719ba89480f0c2de732",
-            "reference": "bbc19ccf949a4a4e9fe49719ba89480f0c2de732",
-            "shasum": ""
-        },
-        "require": {
-            "yiisoft/yii2": "*"
-        },
-        "require-dev": {
-            "yiisoft/yii2-gii": "*"
-        },
-        "time": "2015-05-07 14:19:56",
-        "type": "yii2-extension",
-        "extra": {
-            "bootstrap": "insolita\\migrik\\Bootstrap"
-        },
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "insolita\\migrik\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "insolita",
-                "email": "donnainsolita@gmail.com"
-            }
-        ],
-        "description": "gii tool for mass migration generation by Schema ",
-        "keywords": [
-            "extension",
-            "yii2"
-        ]
-    },
-    {
         "name": "bower-asset/jquery-cookie",
         "version": "v1.4.1",
         "version_normalized": "1.4.1.0",
@@ -1301,5 +1253,83 @@
             "widget",
             "yii2"
         ]
+    },
+    {
+        "name": "insolita/yii2-migration-generator",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Insolita/yii2-migrik.git",
+            "reference": "bbc19ccf949a4a4e9fe49719ba89480f0c2de732"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Insolita/yii2-migrik/zipball/bbc19ccf949a4a4e9fe49719ba89480f0c2de732",
+            "reference": "bbc19ccf949a4a4e9fe49719ba89480f0c2de732",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "require-dev": {
+            "yiisoft/yii2-gii": "*"
+        },
+        "time": "2015-05-07 14:19:56",
+        "type": "yii2-extension",
+        "extra": {
+            "bootstrap": "insolita\\migrik\\Bootstrap"
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "insolita\\migrik\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "insolita",
+                "email": "donnainsolita@gmail.com"
+            }
+        ],
+        "description": "gii tool for mass migration generation by Schema ",
+        "keywords": [
+            "extension",
+            "yii2"
+        ]
+    },
+    {
+        "name": "bower-asset/select2",
+        "version": "3.5.4",
+        "version_normalized": "3.5.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/select2/select2.git",
+            "reference": "95a977f674b6938af55ec5f28b7772df93786c5c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/select2/select2/zipball/95a977f674b6938af55ec5f28b7772df93786c5c",
+            "reference": "95a977f674b6938af55ec5f28b7772df93786c5c",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.7.1"
+        },
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": [
+                "select2.js",
+                "select2.css",
+                "select2.png",
+                "select2x2.png",
+                "select2-spinner.gif"
+            ]
+        },
+        "installation-source": "dist"
     }
 ]
