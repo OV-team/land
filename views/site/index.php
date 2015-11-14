@@ -44,8 +44,8 @@
                         <div class="tabs col-md-12 col-xs-12">
 
                             <ul>
-                                <li class="col-md-6 col-sm-6 col-xs-6">Login</li>
-                                <li class="col-md-6 col-sm-6 col-xs-6">Sign in</li>
+                                <li class="col-md-6 col-sm-6 col-xs-6 login">Login</li>
+                                <li class="col-md-6 col-sm-6 col-xs-6 signin">Sign in</li>
                             </ul>
                             <div>
                                 <div>
@@ -53,7 +53,7 @@
                                 </div>
 
                                 <div>
-                                    <?php echo $this->render('index-logout'); ?>
+                                    <?php echo $this->render('index-signin'); ?>
                                 </div>
                             </div>
                         </div>

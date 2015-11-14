@@ -25,6 +25,7 @@ $('.navbar-collapse ul li a').click(function() {
 
 /* carousel */
 $(document).ready(function() {
+
 $("#screenshots").owlCarousel({
 	items: 4,
 	itemsCustom : [
@@ -47,6 +48,7 @@ $("#owl-testi").owlCarousel
 /* sticky navigation */
   $(document).ready(function(){
     $("#menu").sticky({topSpacing:0});
+
   });
 
 jQuery(document).ready(function($) {  
@@ -59,7 +61,18 @@ $(window).load(function(){
 });
 
 $(document).ready(function(){
+
+    $(".login").click(function(){
+        $("#signintab").fadeOut();
+        $("#logintab").fadeIn("slow");
+    });
+    $(".signin").click(function(){
+        $("#signintab").fadeOut(1);
+        $("#logintab").fadeOut();
+        $("#signintab").fadeIn("slow");
+    });
     $(".tabs").lightTabs();
+
 });
 	
 /* scrollToTop */

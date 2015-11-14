@@ -7,7 +7,7 @@
  */
 ?>
 <form class="form-header" action="http://moxdesign.us10.list-manage.com/subscribe/post"
-      role="form" method="POST" id="#">
+      role="form" method="POST" id="logintab">
     <input type="hidden" name="u" value="503bdae81fde8612ff4944435">
     <input type="hidden" name="id" value="bfdba52708">
 
