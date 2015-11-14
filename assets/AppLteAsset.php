@@ -20,11 +20,13 @@ class AppLteAsset extends AssetBundle
 
     public $css        = [
         'plugins/select2/select2.min.css',
+        'plugins/iCheck/all.css',
         'dist/css/AdminLTE.min.css',
 
     ];
     public $js         = [
         'plugins/select2/select2.min.js',
+        'plugins/iCheck/icheck.min.js',
         'dist/js/app.min.js',
     ];
 

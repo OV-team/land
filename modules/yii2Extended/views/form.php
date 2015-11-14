@@ -14,6 +14,7 @@ if( $model->isNewRecord )
 {
     $this->title = $modelName;
     $subtitle    = Yii::t('app', 'create');
+    $styleClass  = 'success';
 
     $this->params['breadcrumbs'][] = ['label' => $modelName, 'url' => ['index']];
     $this->params['breadcrumbs'][] = $subtitle;
@@ -22,6 +23,7 @@ else
 {
     $this->title = $modelName;
     $subtitle    = Yii::t('app', 'update');
+    $styleClass  = 'primary';
 
     $this->params['breadcrumbs'][] = ['label' => $modelName, 'url' => ['index']];
     $this->params['breadcrumbs'][] = $subtitle;
@@ -38,7 +40,7 @@ $fieldTemplate = '<div class="col-md-3 text-right">{label}</div>' .
 <small><?= $subtitle ?></small>
 <?php $this->endBlock(); ?>
 
-<div class="box box-primary">
+<div class="box box-<?= $styleClass ?>">
     <div class="box-body">
         <?php $form = ActiveForm::begin([
             'options'     => [
@@ -69,14 +71,12 @@ $fieldTemplate = '<div class="col-md-3 text-right">{label}</div>' .
                     $items   = $field->options['items'];
                     $options = $field->options['options'];
 
-                    $defaultClasses   = ['form-control', 'select2'];
-                    $classes          = isset($options['class']) ? explode(' ', $options['class']) : [];
-                    $options['class'] = implode(' ', array_unique(array_merge($defaultClasses, $classes)));
-
+                    $options['class'] = isset($options['class']) ? $options['class'] : 'form-control select2';
                     echo $form->field($model, $field->name)->dropDownList($items, $options);
                     break;
                 case ExtARController::INPUT_CHECKBOX:
-                    echo $form->field($model, $field->name)->checkbox($field->options);
+                    $field->options['class'] = isset($field->options['class']) ? $field->options['class'] : 'flat-blue';
+                    echo $form->field($model, $field->name)->checkbox($field->options, false);
                     break;
             }
         }
@@ -84,7 +84,7 @@ $fieldTemplate = '<div class="col-md-3 text-right">{label}</div>' .
 
         <div class="form-group">
             <div class="col-md-offset-3 col-md-9">
-                <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => 'btn btn-' . $styleClass]) ?>
             </div>
         </div>
         <?php ActiveForm::end(); ?>
