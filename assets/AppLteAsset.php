@@ -13,19 +13,16 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+class AppLteAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $sourcePath = '@vendor/almasaeed2010/adminlte';
     public $css = [
-        'css/site.css',
+        'plugins/select2/select2.min.css'
     ];
     public $js = [
-        'js/site.js'
+        'plugins/select2/select2.min.js'
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-        'app\assets\AppLteAsset',
+        'dmstr\web\AdminLteAsset',
     ];
 }

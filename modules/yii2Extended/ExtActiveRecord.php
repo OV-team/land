@@ -68,7 +68,10 @@ abstract class ExtActiveRecord extends ActiveRecord
         $query = $this->getSearchQuery($params);
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+            'query'      => $query,
+            'pagination' => [
+                'pageSize' => 5,
+            ],
         ]);
 
         return $dataProvider;

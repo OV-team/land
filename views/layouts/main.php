@@ -5,7 +5,6 @@ use yii\helpers\Html;
 /* @var $content string */
 
 app\assets\AppAsset::register($this);
-dmstr\web\AdminLteAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
