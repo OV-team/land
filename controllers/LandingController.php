@@ -2,8 +2,9 @@
 
 namespace app\controllers;
 
-use app\modules\yii2Extended\ExtARController;
 use Yii;
+use app\modules\yii2Extended\ExtARController;
+use widgets\select2\Select2;
 use app\models\Landing;
 use yii\helpers\Html;
 
@@ -27,8 +28,12 @@ class LandingController extends ExtARController
             'name',
             'domain_id',
             [
-                'attribute'           => 'status',
-                'filter'              => $this->model->getStatusList(),
+                'attribute' => 'status',
+                'filter' => $this->model->getStatusList(),
+                'filterInputOptions' => [
+                    'multiple' => 'multiple',
+                    'class' => 'form-control select2'
+                ]
             ],
         ];
 
