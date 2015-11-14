@@ -18,6 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <small><?= Yii::t('app', 'list') ?></small>
 <?php $this->endBlock(); ?>
 
+<p>
+    <?php echo Html::a(Yii::t('app', 'Create'), 'landing/create', ['class' => 'btn btn-success']); ?>
+</p>
+
 <div class="box">
     <div class="box-body">
 
@@ -25,12 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'dataProvider' => $dataProvider,
             'filterModel'  => $model,
             'columns'      => $columns,
-            'layout' => "{items}<div class='row'><div class='col-sm-5'>{summary}</div><div class='col-sm-7'>{pager}</div></div>",
+            'layout'       => "{items}<div class='row'><div class='col-sm-5'>{summary}</div><div class='col-sm-7'>{pager}</div></div>",
             'tableOptions' => [
-                'class' => 'table table-bordered table-hover dataTable',
-            ],
-            'summaryOptions' => [
-                'class' => 'summary dataTables_info',
+                'class' => 'table table-bordered table-hover',
             ],
         ]); ?>
     </div>

@@ -1,4 +1,5 @@
 <?php
+require_once(__DIR__ . '/../functions.php');
 
 Yii::setAlias('@tests', dirname(__DIR__) . '/tests/codeception');
 
@@ -25,21 +26,19 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
-        ],
-    ],
-    */
 ];
 
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
+$dev = isDevExecuting();
+if($dev)
+{
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
+
+    $devConf = require('conf.'.$dev.'.php');
+    $config = arrayMerge($config, $devConf);
+
 }
 
 return $config;

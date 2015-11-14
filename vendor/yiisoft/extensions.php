@@ -291,4 +291,23 @@ return array (
       '@dmstr' => $vendorDir . '/dmstr/yii2-adminlte-asset',
     ),
   ),
+  'insolita/yii2-migration-generator' => 
+  array (
+    'name' => 'insolita/yii2-migration-generator',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@insolita/migrik' => $vendorDir . '/insolita/yii2-migration-generator',
+    ),
+    'bootstrap' => 'insolita\\migrik\\Bootstrap',
+  ),
+  'insolita/yii2-adminlte-widgets' => 
+  array (
+    'name' => 'insolita/yii2-adminlte-widgets',
+    'version' => '1.1.1.0',
+    'alias' => 
+    array (
+      '@insolita/wgadminlte' => $vendorDir . '/insolita/yii2-adminlte-widgets',
+    ),
+  ),
 );

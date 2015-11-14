@@ -1,10 +1,5 @@
 <?php
 
-function isStuff()
-{
-    return isDevExecuting() ? true : false;
-}
-
 function isDevExecuting()
 {
     if( file_exists('C:\users\Will') )

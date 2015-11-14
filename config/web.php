@@ -1,5 +1,5 @@
 <?php
-
+require_once(__DIR__ . '/../functions.php');
 $params   = require(__DIR__ . '/params.php');
 $urlRules = require(__DIR__ . '/urlRules.php');
 
@@ -38,7 +38,7 @@ $config = [
             'useFileTransport' => true,
         ],
         'log' => [
-            'traceLevel' => isStuff() ? 3 : 0,
+            'traceLevel' => isDevExecuting() ? 3 : 0,
             'targets'    => [
                 [
                     'class'  => 'yii\log\FileTarget',
@@ -66,7 +66,9 @@ $config = [
     'params' => $params,
 ];
 
-if (isStuff()) {
+$dev = isDevExecuting();
+if($dev)
+{
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
@@ -77,11 +79,7 @@ if (isStuff()) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
-}
 
-$dev = isDevExecuting();
-if($dev)
-{
     $devConf = require('conf.'.$dev.'.php');
     $config = arrayMerge($config, $devConf);
 }
