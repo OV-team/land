@@ -17,7 +17,7 @@ abstract class ExtARController extends Controller
     CONST INPUT_TEXT     = 'text';
     CONST INPUT_TEXTAREA = 'textarea';
     CONST INPUT_SELECT   = 'select';
-    CONST INPUT_SWITCHER = 'switcher';
+    CONST INPUT_CHECKBOX = 'switcher';
 
     /**
      * @var array
@@ -84,6 +84,21 @@ abstract class ExtARController extends Controller
         ];
     }
 
+    private function handleGridColumns()
+    {
+        foreach($this->gridColumns as $key => $column) {
+            if( isset($column['filter']) && is_array($column['filter']) )
+            {
+                $this->gridColumns[$key] = arrayMerge($column, [
+                    'filterInputOptions' => [
+                        'class' => 'form-control select2'
+                    ]
+                ]);
+//                var_dump($this->gridColumns[$key]);
+            }
+        }
+    }
+
     private function addFormField( $name, $type, $options = [] )
     {
         $field = new \stdClass();
@@ -105,6 +120,11 @@ abstract class ExtARController extends Controller
         $this->addFormField($name, self::INPUT_SELECT, compact('items', 'options'));
     }
 
+    public function addCheckBoxField( $name, $options = [] )
+    {
+        $this->addFormField($name, self::INPUT_CHECKBOX, $options);
+    }
+
     public function actions()
     {
         return [
@@ -123,6 +143,7 @@ abstract class ExtARController extends Controller
         $model        = $this->getModel();
         $dataProvider = $model->search(Yii::$app->request->queryParams);
 
+        $this->handleGridColumns();
         $this->mergeActionButtons();
 
         return $this->render('@olgert/yii2/views/index', [
@@ -203,4 +224,5 @@ abstract class ExtARController extends Controller
             return $model;
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }

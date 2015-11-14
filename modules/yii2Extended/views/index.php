@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo Html::a(Yii::t('app', 'Create'), 'landing/create', ['class' => 'btn btn-success']); ?>
 </p>
 
-<div class="box">
+<div class="box box-primary">
     <div class="box-body">
 
         <?= GridView::widget([

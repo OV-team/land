@@ -15,6 +15,7 @@ use Yii;
  * @property string $status
  * @property string $t_created
  * @property string $t_updated
+ * @property string $is_public
  */
 class Landing extends ExtActiveRecord
 {
@@ -37,7 +38,7 @@ class Landing extends ExtActiveRecord
     {
         if( $this->scenario == self::SCENARIO_SEARCH )
             return [
-                [['id', 'user_id', 'domain_id'], 'integer'],
+                [['id', 'user_id', 'domain_id', 'is_public'], 'integer'],
                 [['name', 'status', 't_created', 't_updated'], 'safe'],
             ];
         else
@@ -49,6 +50,7 @@ class Landing extends ExtActiveRecord
                 ['status', 'in', 'range' => array_keys($this->getStatusList())],
                 ['status', 'default', 'value' => Landing::STATUS_NEW],
                 [['t_created', 't_updated'], 'safe'],
+                ['is_public', 'boolean']
             ];
     }
 
@@ -63,8 +65,9 @@ class Landing extends ExtActiveRecord
             'name'      => Yii::t('app', 'Name'),
             'domain_id' => Yii::t('app', 'Domain ID'),
             'status'    => Yii::t('app', 'Status'),
-            't_created' => Yii::t('app', 'T Created'),
-            't_updated' => Yii::t('app', 'T Updated'),
+            'is_public' => Yii::t('app', 'Public'),
+            't_created' => Yii::t('app', 'Created'),
+            't_updated' => Yii::t('app', 'Updated'),
         ];
     }
 
@@ -86,6 +89,7 @@ class Landing extends ExtActiveRecord
             'domain_id' => $this->domain_id,
             't_created' => $this->t_created,
             't_updated' => $this->t_updated,
+            'is_public' => $this->is_public,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
@@ -101,5 +105,25 @@ class Landing extends ExtActiveRecord
             self::STATUS_DISABLED => Yii::t('app', 'Disabled'),
             self::STATUS_NEW      => Yii::t('app', 'New'),
         ];
+    }
+
+    public function getStatusText()
+    {
+        $list = $this->getStatusList();
+        return isset($list[$this->status]) ? $list[$this->status] : null;
+    }
+
+    public function getPublicTypeList()
+    {
+        return [
+            0 => Yii::t('app', 'No'),
+            1 => Yii::t('app', 'Yes'),
+        ];
+    }
+
+    public function getIsPublicText()
+    {
+        $list = $this->getPublicTypeList();
+        return isset($list[$this->is_public]) ? $list[$this->is_public] : null;
     }
 }

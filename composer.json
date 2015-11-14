@@ -20,8 +20,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "dmstr/yii2-adminlte-asset": "2.*",
-        "insolita/yii2-adminlte-widgets": "*",
-        "bower-asset/select2": "3.*"
+        "insolita/yii2-adminlte-widgets": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

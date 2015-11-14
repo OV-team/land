@@ -4,7 +4,6 @@ namespace app\controllers;
 
 use Yii;
 use app\modules\yii2Extended\ExtARController;
-use widgets\select2\Select2;
 use app\models\Landing;
 use yii\helpers\Html;
 
@@ -29,11 +28,19 @@ class LandingController extends ExtARController
             'domain_id',
             [
                 'attribute' => 'status',
-                'filter' => $this->model->getStatusList(),
-                'filterInputOptions' => [
-                    'multiple' => 'multiple',
-                    'class' => 'form-control select2'
-                ]
+                'filter'    => $this->model->getStatusList(),
+                'value'     => function ( Landing $model )
+                {
+                    return $model->getStatusText();
+                }
+            ],
+            [
+                'attribute' => 'is_public',
+                'filter'    => $this->model->getPublicTypeList(),
+                'value'     => function ( Landing $model )
+                {
+                    return $model->getIsPublicText();
+                }
             ],
         ];
 
@@ -44,8 +51,9 @@ class LandingController extends ExtARController
 
         // ------ Form ------
         $this->addTextField('name', ['maxlength' => true]);
-        $this->addTextField('user_id');
-        $this->addTextField('domain_id');
+        $this->addTextField('user_id', ['prefix' => '#']);
+        $this->addTextField('domain_id', ['prefix' => '<i class="fa fa-chrome"></i>', 'suffix' => '.com']);
         $this->addSelectField('status', $this->model->getStatusList());
+        $this->addCheckboxField('is_public');
     }
 }
