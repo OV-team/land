@@ -18,8 +18,10 @@ class LandingController extends ExtARController
         return 'app\models\Landing';
     }
 
-    public function initScopes()
+    public function initActions()
     {
+        $this->title = Yii::t( 'app', 'Manage landings' );
+
         // ------ GridView ------
         $this->gridColumns = [
             'id',
@@ -32,7 +34,7 @@ class LandingController extends ExtARController
                 'value'     => function ( Landing $model )
                 {
                     return $model->getStatusText();
-                }
+                },
             ],
             [
                 'attribute' => 'is_public',
@@ -40,20 +42,24 @@ class LandingController extends ExtARController
                 'value'     => function ( Landing $model )
                 {
                     return $model->getIsPublicText();
-                }
+                },
             ],
         ];
 
-        $this->addActionButton('stat', function ( $url, $model )
+        $this->addActionButton( 'stat', function ( $url, $model )
         {
-            return Html::a(Yii::t('app', '<span class="glyphicon glyphicon-stats"></span>'), $url);
-        });
+            return Html::a( '<span class="glyphicon glyphicon-stats"></span>', $url, [
+                'data-pjax'   => '0',
+                'data-toggle' => 'tooltip',
+                'title'       => Yii::t( 'app', 'Statistic' ),
+            ] );
+        } );
 
         // ------ Form ------
-        $this->addTextField('name', ['maxlength' => true]);
-        $this->addTextField('user_id', ['prefix' => '#']);
-        $this->addTextField('domain_id', ['prefix' => '<i class="fa fa-chrome"></i>', 'suffix' => '.com']);
-        $this->addSelectField('status', $this->model->getStatusList());
-        $this->addCheckboxField('is_public');
+        $this->addTextField( 'name', [ 'maxlength' => true ] );
+        $this->addTextField( 'user_id', [ 'prefix' => '#' ] );
+        $this->addTextField( 'domain_id', [ 'prefix' => '<i class="fa fa-chrome"></i>', 'suffix' => '.com' ] );
+        $this->addSelectField( 'status', $this->model->getStatusList() );
+        $this->addCheckboxField( 'is_public' );
     }
 }

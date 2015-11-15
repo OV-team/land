@@ -8,25 +8,24 @@ use yii\widgets\ActiveForm;
 /* @var $model app\modules\yii2Extended\ExtActiveRecord */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $formFields yii\widgets\ActiveForm */
+/* @var $title string */
 
-$modelName = $model->getHumanName();
+$this->title = $title;
+
 if( $model->isNewRecord )
 {
-    $this->title = $modelName;
-    $subtitle    = Yii::t('app', 'create');
-    $styleClass  = 'success';
+    $styleClass = 'success';
 
-    $this->params['breadcrumbs'][] = ['label' => $modelName, 'url' => ['index']];
-    $this->params['breadcrumbs'][] = $subtitle;
+    $this->params['breadcrumbs'][] = ['label' => $title, 'url' => ['index']];
+    $this->params['breadcrumbs'][] = Yii::t('app', 'Create');
 }
 else
 {
-    $this->title = $modelName;
-    $subtitle    = Yii::t('app', 'update');
-    $styleClass  = 'primary';
 
-    $this->params['breadcrumbs'][] = ['label' => $modelName, 'url' => ['index']];
-    $this->params['breadcrumbs'][] = $subtitle;
+    $styleClass = 'primary';
+
+    $this->params['breadcrumbs'][] = ['label' => $title, 'url' => ['index']];
+    $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
     $this->params['breadcrumbs'][] = '#' . $model->id;
 }
 
@@ -37,20 +36,19 @@ $fieldTemplate = '<div class="col-md-3 text-right">{label}</div>' .
 
 <?php $this->beginBlock('content-header'); ?>
 <?= $this->title ?>
-<small><?= $subtitle ?></small>
 <?php $this->endBlock(); ?>
 
 <div class="box box-<?= $styleClass ?>">
+    <?php $form = ActiveForm::begin([
+        'options'     => [
+            'class'   => 'form-horizontal',
+            'enctype' => 'multipart/form-data',
+        ],
+        'fieldConfig' => [
+            'template' => $fieldTemplate,
+        ],
+    ]); ?>
     <div class="box-body">
-        <?php $form = ActiveForm::begin([
-            'options'     => [
-                'class'   => 'form-horizontal',
-                'enctype' => 'multipart/form-data',
-            ],
-            'fieldConfig' => [
-                'template' => $fieldTemplate,
-            ],
-        ]); ?>
 
         <?php
         foreach( $formFields as $field )
@@ -82,12 +80,15 @@ $fieldTemplate = '<div class="col-md-3 text-right">{label}</div>' .
         }
         ?>
 
+    </div>
+    <div class="box-footer">
         <div class="form-group">
             <div class="col-md-offset-3 col-md-9">
                 <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => 'btn btn-' . $styleClass]) ?>
             </div>
         </div>
-        <?php ActiveForm::end(); ?>
-
     </div>
+
+
+    <?php ActiveForm::end(); ?>
 </div>

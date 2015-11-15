@@ -3,6 +3,7 @@ namespace app\modules\yii2Extended;
 
 use Yii;
 use yii\filters\VerbFilter;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -19,17 +20,10 @@ abstract class ExtARController extends Controller
     CONST INPUT_SELECT   = 'select';
     CONST INPUT_CHECKBOX = 'switcher';
 
-    /**
-     * @var array
-     */
-    protected $formFields = [];
-    /**
-     * @var array
-     */
+    protected $formFields  = [];
     protected $gridColumns = [];
-    /**
-     * @var array
-     */
+    protected $title       = 'Manage items';
+
     private $actionButtons = [];
 
     /**
@@ -38,13 +32,13 @@ abstract class ExtARController extends Controller
      */
     abstract public function getModelName();
 
-    abstract public function initScopes();
+    abstract public function initActions();
 
     public function init()
     {
         parent::init();
 
-        $this->initScopes();
+        $this->initActions();
     }
 
     public function behaviors()
@@ -66,35 +60,49 @@ abstract class ExtARController extends Controller
 
     private function mergeActionButtons()
     {
-        $buttons = [
-            'delete' => '{delete}',
-            'update' => '{update}',
-        ];
+        $this->addActionButton('update', function ( $url )
+        {
+            return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, [
+                'data-pjax'   => '0',
+                'data-toggle' => 'tooltip',
+                'title'       => Yii::t('app', 'Update'),
+            ]);
+        });
+        $this->addActionButton('delete', function ( $url )
+        {
+            return Html::a('<span class="glyphicon glyphicon-trash"></span>', $url, [
+                'class'       => 'delete_ar_handler',
+                'data-pjax'   => '0',
+                'data-toggle' => 'tooltip',
+                'data-target' => '#confirm-delete',
+                'title'       => Yii::t('app', 'Delete'),
+            ]);
+        });
+
+        $buttons = [];
         foreach( $this->actionButtons as $actionButton => $func )
         {
             $buttons[$actionButton] = '{' . $actionButton . '}';
         }
 
-        $template = implode('  ', array_reverse($buttons));
-
         $this->gridColumns[] = [
             'class'    => 'yii\grid\ActionColumn',
-            'template' => $template,
+            'template' => implode('  ', $buttons),
             'buttons'  => $this->actionButtons,
         ];
     }
 
     private function handleGridColumns()
     {
-        foreach($this->gridColumns as $key => $column) {
+        foreach( $this->gridColumns as $key => $column )
+        {
             if( isset($column['filter']) && is_array($column['filter']) )
             {
                 $this->gridColumns[$key] = arrayMerge($column, [
                     'filterInputOptions' => [
-                        'class' => 'form-control select2'
-                    ]
+                        'class' => 'form-control select2',
+                    ],
                 ]);
-//                var_dump($this->gridColumns[$key]);
             }
         }
     }
@@ -147,6 +155,7 @@ abstract class ExtARController extends Controller
         $this->mergeActionButtons();
 
         return $this->render('@olgert/yii2/views/index', [
+            'title'        => $this->title,
             'model'        => $model,
             'columns'      => $this->gridColumns,
             'dataProvider' => $dataProvider,
@@ -172,13 +181,25 @@ abstract class ExtARController extends Controller
     {
         $model = isset($id) ? $this->findModel($id) : $this->getModel();
 
-        if( $model->load(Yii::$app->request->post()) && $model->validate() )
+        if( $model->load(Yii::$app->request->post()) )
         {
-            if( $model->save() )
-                return $this->redirect(['index']);
+            if( $model->validate() )
+            {
+                if( $model->save(false) )
+                {
+                    Yii::$app->session->setFlash('success', Yii::t('app', 'Item has been updated'));
+                    return $this->redirect(['index']);
+                }
+                else
+                    Yii::$app->session->setFlash('danger', Yii::t('app', 'Error occurred while saving'));
+            }
+            else
+                Yii::$app->session->setFlash('danger', Yii::t('app', 'Error occurred while validation'));
         }
 
+
         return $this->render('@olgert/yii2/views/form', [
+            'title'      => $this->title,
             'formFields' => $this->formFields,
             'model'      => $model,
         ]);
@@ -190,7 +211,8 @@ abstract class ExtARController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete( $id )
+    public
+    function actionDelete( $id )
     {
         $this->findModel($id)->delete();
 
@@ -201,11 +223,14 @@ abstract class ExtARController extends Controller
      * @return ExtActiveRecord
      * @throws NotFoundHttpException
      */
-    public function getModel()
+    public
+    function getModel()
     {
         $modelName = $this->getModelName();
         if( class_exists($modelName) )
+        {
             return new $modelName;
+        }
         throw new NotFoundHttpException();
     }
 
@@ -216,12 +241,15 @@ abstract class ExtARController extends Controller
      * @return ExtActiveRecord the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel( $id )
+    protected
+    function findModel( $id )
     {
         $model = $this->getModel();
         $model = $model::findOne($id);
         if( $model !== null )
+        {
             return $model;
+        }
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 

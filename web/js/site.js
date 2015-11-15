@@ -7,4 +7,13 @@ $(function () {
         checkboxClass: 'icheckbox_flat-blue',
         radioClass: 'iradio_flat-blue'
     });
+
+    //Modal handler
+    $('.delete_ar_handler').click(function () {
+        var $modal = $($(this).attr('data-target'));
+        $modal.find('#delete-link').attr('href', $(this).attr('href'));
+        $modal.modal();
+        return false;
+    })
+
 });
