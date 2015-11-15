@@ -12,6 +12,9 @@ $config = [
         'yii2Extended',
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'assetManager' => [
             'bundles' => [
                 'dmstr\web\AdminLteAsset' => [
@@ -27,8 +30,14 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass'   => 'app\models\User',
-            'enableAutoLogin' => true,
+            'identityClass' => 'app\models\User',
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@app/views/user',
+                ],
+            ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -47,7 +56,6 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-
         'urlManager' => [
             'class'           => 'yii\web\UrlManager',
             'showScriptName'  => false,
@@ -61,6 +69,17 @@ $config = [
         ],
         'landConstructor' =>  [
             'class' => 'app\landConstructor\Module',
+        ],
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'admins' => ['pro100olgert'],
+            'enableFlashMessages' => false,
+            'modelMap' => [
+                'User' => 'app\models\User',
+            ],
+        ],
+        'rbac' => [
+            'class' => 'dektrium\rbac\Module',
         ],
     ],
     'params' => $params,
