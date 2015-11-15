@@ -70,7 +70,7 @@ abstract class ExtActiveRecord extends ActiveRecord
         $dataProvider = new ActiveDataProvider([
             'query'      => $query,
             'pagination' => [
-                'pageSize' => 5,
+                'pageSize' => 15,
             ],
         ]);
 

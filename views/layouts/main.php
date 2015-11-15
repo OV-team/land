@@ -34,7 +34,6 @@ app\assets\AppAsset::register($this);
         'content.php',
         ['content' => $content]
     ) ?>
-
 </div>
 
 <?php $this->endBody() ?>

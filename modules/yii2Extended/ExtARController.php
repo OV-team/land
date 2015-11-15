@@ -94,7 +94,6 @@ abstract class ExtARController extends Controller
                         'class' => 'form-control select2'
                     ]
                 ]);
-//                var_dump($this->gridColumns[$key]);
             }
         }
     }

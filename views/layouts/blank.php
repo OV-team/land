@@ -18,7 +18,6 @@ app\assets\AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body class="login-page">
-
 <?php $this->beginBody() ?>
 
     <?= $content ?>
