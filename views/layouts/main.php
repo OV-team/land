@@ -20,7 +20,7 @@ app\assets\AppAsset::register($this);
 <body class="hold-transition skin-blue sidebar-mini">
 <?php $this->beginBody() ?>
 <div class="wrapper">
-
+<div id="preloader"><span class="spinner"></span></div>
     <?= $this->render(
         'header.php'
     ) ?>
