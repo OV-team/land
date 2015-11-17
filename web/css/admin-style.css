@@ -1,0 +1,21 @@
+#preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 100500;
+}
+#preloader .spinner{
+    width: 125px;
+    height: 125px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: url('/images/Preloader_3.gif') no-repeat 50% 50%;
+    margin: -16px 0 0 -16px;
+}
+/*.sidebar-menu .treeview-menu{*/
+     /*display: block !important;*/
+ /*}*/

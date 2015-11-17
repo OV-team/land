@@ -36,38 +36,22 @@ class Menu
             $access = $item['access'];
 
 
-            if( isset($item['items']) )
+            if( isset($item['items']) && $access == 'admin' )
             {
-                if( $access == 'admin' )
-                {
-                    echo '<li class="treeview '.$access.'"><a><i class="' . $item['icon'] . '"></i><span>' . $item["label"] . '<i class="fa fa-angle-left pull-right"></i></a><span><ul class="treeview-menu"></li>';
+                    echo '<li class="treeview '.$access.'"><a><i class="' . $item['icon'] . '"></i><span>' . $item["label"] . '<i class="fa fa-angle-left pull-right"></i></a><span><ul class="treeview-menu submenu"></li>';
                     foreach( $item['items'] as $subitem )
                     {
                         $accessSubItem = $subitem['access'];
-//                        провер€ю пользовател€
-                        if($accessSubItem == 'admin')
-                        {
-                            $accessSubItem = 'show';
-                        }else
-                        {
-                            $accessSubItem = 'hide';
+                        if( $accessSubItem == 'admin' ){
+                            echo '<li class="treeview-menu show"><a href="' . $subitem['url'] . '"><i class="' . $subitem['icon'] . '"></i><span>' . $subitem["label"] . '<span></a></li>';
                         }
-
-                        echo '<li class="treeview-menu '.$accessSubItem.'"><a href="' . $subitem['url'] . '"><i class="' . $subitem['icon'] . '"></i><span>' . $subitem["label"] . '<span></a></li>';
                     }
                     echo '</ul>';
-                }
             }else
             {
-                if($access == 'admin')
-                {
-                    $access = 'show';
-                }else
-                {
-                    $access = 'hide';
+                if( $access == 'admin' ){
+                    echo '<li class="treeview show"><a href="' . $item['url'] . '"><i class="' . $item['icon'] . '"></i><span>' . $item["label"] . '<span></a></li>';
                 }
-                echo '<li class="treeview '.$access.'"><a href="' . $item['url'] . '"><i class="' . $item['icon'] . '"></i><span>' . $item["label"] . '<span></a></li>';
-
             }
         }
 
